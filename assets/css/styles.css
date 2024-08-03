@@ -19,8 +19,8 @@
       -> Copy the color mode (HSL)
   */
 
-  --hue: 162;
-  --first-color: hsl(var(--hue), 100%, 40%);
+  --hue: 250;
+  --first-color: hsl(var(--hue), 100%, 75%);
   --first-color-alt: hsl(var(--hue), 56%, 35%);
   --title-color: hsl(228, 8%, 95%);
   --text-color: hsl(228, 8%, 65%);
@@ -35,9 +35,9 @@
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
-  --normal-font-size: .938rem;
-  --small-font-size: .813rem;
-  --smaller-font-size: .75rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -58,8 +58,8 @@
     --h2-font-size: 1.5rem;
     --h3-font-size: 1.25rem;
     --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-    --smaller-font-size: .813rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
   }
 }
 
@@ -94,7 +94,10 @@ button {
   border: none;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   color: var(--title-color);
   font-weight: var(--font-medium);
 }
@@ -128,7 +131,7 @@ svg {
   padding-block: 5rem 2rem;
 }
 
-.section__title, 
+.section__title,
 .section__subtitle {
   text-align: center;
   color: var(--title-color);
@@ -142,7 +145,7 @@ svg {
 
 .section__subtitle {
   font-size: var(--small-font-size);
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .section__subtitle span {
@@ -154,58 +157,232 @@ svg {
 }
 
 /*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--container-color);
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+}
 
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+.nav__logo span {
+  color: var(--first-color);
+}
+
+.nav__toggle,
+.nav__close {
+  display: flex;
+  font-weight: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+}
 
 /* Navigation for mobile devices */
+@media screen and (max-width: 1023px) {
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: hsla(0, 0%, 10%, 0.3);
+    width: 75%;
+    height: 100%;
+    padding: 4.5rem 0 0 3rem;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); /*forsafari*/
+    transition: right 0.4s;
+    -webkit-transition: right 0.4s;
+    -moz-transition: right 0.4s;
+    -ms-transition: right 0.4s;
+    -o-transition: right 0.4s;
+  }
+}
 
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+.nav__link {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -ms-transition: color 0.3s;
+  -o-transition: color 0.3s;
+}
+.nav__link:hover {
+  color: var(--first-color);
+}
 
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
 /* Show menu */
-
-
+.show-menu {
+  right: 0;
+}
 /* Add blur to header */
-
 
 /* Active link */
 
-
 /*=============== HOME ===============*/
+.home {
+  background-color: var(--container-color);
+}
 
+.home__container {
+  padding-top: 2rem;
+  row-gap: 2.5rem;
+}
+
+.home__content {
+  display: grid;
+  row-gap: 2rem;
+}
+
+.home__data {
+  text-align: center;
+}
+
+.home__subtitle,
+.home__education {
+  font-size: var(--bigger-font-size);
+}
+
+.home__subtitle span,
+.home__title {
+  color: var(--first-color);
+}
+
+.home__title {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+.home__description {
+  margin-block: 1rem 1.5rem;
+}
+
+.home__social {
+  display: flex;
+  justify-content: center;
+  column-gap: 1.25rem;
+}
+
+.home__social-link {
+  display: flex;
+  background-color: var(--first-color-alt);
+  padding: 0.5rem;
+  color: var(--title-color);
+  font-size: 1.5rem;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transition: transform 0.4s;
+  -webkit-transition: transform 0.4s;
+  -moz-transition: transform 0.4s;
+  -ms-transition: transform 0.4s;
+  -o-transition: transform 0.4s;
+}
+
+.home__social-link:hover {
+  transform: translateY(-0.25rem);
+  -webkit-transform: translateY(-0.25rem);
+  -moz-transform: translateY(-0.25rem);
+  -ms-transform: translateY(-0.25rem);
+  -o-transform: translateY(-0.25rem);
+}
+
+.home__image {
+  justify-self: center;
+}
+
+.home__blob {
+  width: 320px;
+  fill: var(--first-color);
+  filter: drop-shadow(0 12px 12px hsla(var(--hue), 100%, 40%, 0.2));
+  -webkit-filter: drop-shadow(0 12px 12px hsla(var(--hue), 100%, 40%, 0.2));
+}
 
 /*=============== BUTTON ===============*/
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  padding: 1rem 1.75rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  transform: box-shadow 0.4s;
+  -webkit-transform: box-shadow 0.4s;
+  -moz-transform: box-shadow 0.4s;
+  -ms-transform: box-shadow 0.4s;
+  -o-transform: box-shadow 0.4s;
+}
 
-
+.button:hover {
+  box-shadow: 0 8px 24px hsla(var(--hue), 100%, 40%, 0.25);
+}
 /*=============== ABOUT ===============*/
+.about__container {
+  row-gap: 2.5rem;
+}
 
+.about__data {
+  text-align: center;
+}
 
+.about__description {
+  margin-bottom: 2rem;
+}
+
+.about__image {
+  justify-self: center;
+}
+
+.about__blob {
+  width: 320px;
+}
+
+about__blob path {
+  stroke: var(--first-color);
+}
 /*=============== SKILLS ===============*/
-
 
 /*=============== SERVICES ===============*/
 
-
 /*=============== PROJECTS ===============*/
-
 
 /*=============== CONTACT ===============*/
 
-
 /*=============== FOOTER ===============*/
-
 
 /*=============== SCROLL BAR ===============*/
 
-
 /*=============== SCROLL UP ===============*/
 
-
 /* Show Scroll Up */
-
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 
-
 /* For medium devices */
-
 
 /* For large devices */
