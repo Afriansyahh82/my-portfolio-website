@@ -36,9 +36,49 @@ const scrollHeader = () => {
 };
 window.addEventListener("scroll", scrollHeader);
 /*=============== EMAIL JS ===============*/
+const contactForm = document.getElementById("contact-form"),
+  contactMessage = document.getElementById("contact-message");
 
+const sendEmail = (e) => {
+  e.preventDefault();
+  // serviceID - templateID - #form - publicKey
+  emailjs
+    .sendForm(
+      "service_6dpvyfo",
+      "template_921k9va",
+      "#contact-form",
+      "Pa0MtXJfYAsSCC6S5"
+    )
+    .then(
+      () => {
+        // Show send message
+        contactMessage.textContent = "Message sent succesfully ✅";
+
+        // Remove message after five seconds
+        setTimeout(() => {
+          contactMessage.textContent = "";
+        }, 5000);
+
+        // Clear input field
+        contactForm.reset();
+      },
+      () => {
+        // Show error message
+        contactMessage.textContent = "Message not sent (service error) ❌";
+      }
+    );
+};
+
+contactForm.addEventListener("submit", sendEmail);
 /*=============== SHOW SCROLL UP ===============*/
-
+const scrollUp = () => {
+  const scrollUp = document.getElementById("scroll-up");
+  // when the scroll is higher than 350 viewport height, add scroll up
+  this.scrollY >= 350
+    ? scrollUp.classList.add("show-scroll")
+    : scrollUp.classList.remove("show-scroll");
+};
+window.addEventListener("scroll", scrollUp);
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
