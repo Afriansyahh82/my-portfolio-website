@@ -27,14 +27,14 @@ const linkAction = () => {
 };
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 /*=============== ADD BLUR TO HEADER ===============*/
-const scrollHeader = () => {
+const blurHeader = () => {
   const header = document.getElementById("header");
   // when the scroll is greater than 50 viewport height, add
   this.scrollY >= 50
-    ? header.classList.add("scroll-header")
-    : header.classList.remove("scroll-header");
+    ? header.classList.add("blur-header")
+    : header.classList.remove("blur-header");
 };
-window.addEventListener("scroll", scrollHeader);
+window.addEventListener("scroll", blurHeader);
 /*=============== EMAIL JS ===============*/
 const contactForm = document.getElementById("contact-form"),
   contactMessage = document.getElementById("contact-message");
@@ -104,3 +104,18 @@ const scrollActive = () => {
 window.addEventListener("scroll", scrollActive);
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+  origin: "top",
+  distance: "60px",
+  duration: 2500,
+  delay: 300,
+  reset: true, //Animation repeat
+});
+
+sr.reveal(
+  `.home__data, .home__social, .contact__container, .footer__container`
+);
+sr.reveal(`.home__image`, { origin: "bottom" });
+sr.reveal(`.about__data, .skills__data`, { origin: "left" });
+sr.reveal(`.about__image, .skills__content`, { origin: "right" });
+sr.reveal(`.services__card, .projects__card`, { interval: 100 });
