@@ -26,6 +26,15 @@ const linkAction = () => {
   navMenu.classList.remove("show-menu");
 };
 navLink.forEach((n) => n.addEventListener("click", linkAction));
+
+// KLIK DI LUAR ELEMEN
+const nm = document.querySelectorAll("#nav__menu");
+
+document.addEventListener("click", function (e) {
+  if (!nm.contains(e.target) && !navMenu.contains(e.target)) {
+    navMenu.classList.remove("active");
+  }
+});
 /*=============== ADD BLUR TO HEADER ===============*/
 const blurHeader = () => {
   const header = document.getElementById("header");
@@ -109,7 +118,7 @@ const sr = ScrollReveal({
   distance: "60px",
   duration: 2500,
   delay: 300,
-  reset: true, //Animation repeat
+  // reset: true, //Animation repeat
 });
 
 sr.reveal(
