@@ -564,7 +564,6 @@ svg {
   font-size: var(--small-font-size);
   color: var(--title-color);
 }
-*/
 
 /*=============== FOOTER ===============*/
 .footer {
@@ -755,6 +754,7 @@ svg {
     margin-inline: auto;
   }
 
+  /* Home Breakpoint */
   .home__container {
     grid-template-columns: 445px 550px;
     column-gap: 7rem;
@@ -774,6 +774,7 @@ svg {
     column-gap: 1.5rem;
   }
 
+  /* About Breakpoint */
   .about__container {
     grid-template-columns: 550px 460px;
     column-gap: 4.5rem;
@@ -786,6 +787,7 @@ svg {
     margin-bottom: 3rem;
   }
 
+  /* Skills Breakpoint */
   .skills__container {
     grid-template-columns: 340px 425px;
     column-gap: 10rem;
@@ -804,6 +806,7 @@ svg {
     font-size: var(--h3-font-size);
   }
 
+  /* Services Breakpoint */
   .services__container {
     grid-template-columns: repeat(3, 352px);
     padding-block: 2.5rem 4rem;
@@ -820,6 +823,8 @@ svg {
   .project__button {
     font-size: var(--normal-font-size);
   }
+
+  /* Contact Breakpoint */
   .contact__container {
     grid-template-columns: 680px;
     padding-block: 2.5rem 2rem;
@@ -838,7 +843,7 @@ svg {
   .contact__form textarea {
     height: 20rem;
   }
-
+  /* Footer Breakpoint */
   .footer {
     padding-block: 4.5rem 4rem;
   }
