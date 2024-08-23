@@ -27,14 +27,6 @@ const linkAction = () => {
 };
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
-// KLIK DI LUAR ELEMEN
-const nm = document.querySelectorAll("#nav__menu");
-
-document.addEventListener("click", function (e) {
-  if (!nm.contains(e.target) && !navMenu.contains(e.target)) {
-    navMenu.classList.remove("active");
-  }
-});
 /*=============== ADD BLUR TO HEADER ===============*/
 const blurHeader = () => {
   const header = document.getElementById("header");

@@ -549,7 +549,6 @@ svg {
 .contact__form textarea {
   height: 11rem;
   resize: none;
-  margin-bottom: 10rem;
 }
 
 .contact__button {
