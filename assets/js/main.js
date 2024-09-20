@@ -27,6 +27,20 @@ const linkAction = () => {
 };
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
+/*=============== Typed JS ================*/
+const typed = new Typed(".multiple-text", {
+  strings: [
+    "Frontend Developer",
+    "Backend Developer",
+    "Fullstack Developer",
+    // "Bug Hunter",
+  ],
+  typedSpeed: 100,
+  backSpeed: 100,
+  backDelay: 2000,
+  loop: true,
+});
+
 /*=============== ADD BLUR TO HEADER ===============*/
 const blurHeader = () => {
   const header = document.getElementById("header");
